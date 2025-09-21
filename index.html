@@ -27,8 +27,8 @@
   <style>
     .banner-gif-combo {
       position: relative;
-      width: 350px;  /* enlarged from 250px */
-      height: 350px; /* enlarged from 250px */
+      width: 350px;
+      height: 350px;
       flex-shrink: 0;
     }
 
@@ -49,13 +49,16 @@
       border-radius: 50%;
     }
 
-    /* Middle project: flex layout with GIF left, text right */
     .middle-project {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 3rem;
       margin: 4rem 0;
+    }
+
+    .project-text-limited {
+      max-width: 600px; /* prevents text from running under the GIFs */
     }
 
     /* Responsive adjustments */
@@ -68,6 +71,10 @@
       .middle-project {
         flex-direction: column;
         text-align: center;
+      }
+
+      .project-text-limited {
+        max-width: 100%;
       }
     }
   </style>
@@ -114,19 +121,15 @@
     <div class="container text-white">
 
       <!-- Top Project: Bowling -->
-      <div class="row align-items-start mb-5">
-        <div class="col-lg-9">
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-8 project-text-limited">
           <h2 class="banner-size fw-medium display-3 my-4">We Bowling</h2>
           <p>
-            A modern take on the bowling minigame from Wii Sports™. Built in Unreal Engine, it
-            focuses on collision detection and response primarily starting with the ball. I
-            manually experimented with different materials and properties to find which
-            setup made the objects feel realistic, adding in physics that aren't included in
-            Unreal such as spin/backspin, realignment, hit detection under certain qualities,
-            basic object manipulation and borders that limited only certain objs.
+            A modern take on the bowling minigame from Wii Sports™. Built in Unreal Engine,
+            it focuses on realistic collision detection, ball spin/backspin, and custom physics.
           </p>
         </div>
-        <div class="col-lg-3 d-flex flex-column align-items-end gap-4">
+        <div class="col-lg-4 d-flex justify-content-center">
           <div class="banner-gif-combo">
             <img src="images/BowlingGif.gif" alt="Bowling Gif" class="rounded-circle" />
             <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
@@ -140,27 +143,26 @@
           <img src="images/PASGif.gif" alt="PenAndSword Gif" class="rounded-circle" />
           <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
         </div>
-        <div class="project-text">
+        <div class="project-text-limited">
           <h2 class="banner-size fw-medium display-3 my-4">Pen & Sword</h2>
           <p>
             A top-down, tower defence game; Pen & Sword was a result of a team collaboration
-            with the theme: 'Many enemies'. My contributions mainly focus on the towers, bullets and plots,
-            and I helped bridge the gap between programmers and non-programmers during development.
+            with the theme: 'Many enemies'. My contributions mainly focus on the towers, bullets
+            and plots, and I helped bridge the gap between programmers and non-programmers.
           </p>
         </div>
       </div>
 
       <!-- Bottom Project: Null -->
-      <div class="row align-items-start mt-5">
-        <div class="col-lg-9">
-          <h2 class="banner-size fw-medium display-3 my-4">BIOS</h2>
+      <div class="row align-items-center mt-5">
+        <div class="col-lg-8 project-text-limited">
+          <h2 class="banner-size fw-medium display-3 my-4">Null</h2>
           <p>
-            A 2D, sidescrolling investigation thriller based on the game Phasmophobia. A personal project
-            aimed to figure out if I could use indicators (other than visuals) to tell the player that an
-            enemy is nearby or approaching or that they're using an item.
+            A 2D sidescrolling thriller inspired by Phasmophobia. This project experiments
+            with non-visual cues to signal approaching enemies or item use.
           </p>
         </div>
-        <div class="col-lg-3 d-flex flex-column align-items-end gap-4">
+        <div class="col-lg-4 d-flex justify-content-center">
           <div class="banner-gif-combo">
             <img src="images/Biosgif.gif" alt="BiosGif Gif" class="rounded-circle" />
             <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
@@ -182,6 +184,8 @@
   <script src="js/script.js"></script>
 </body>
 </html>
+
+
 
 
 
