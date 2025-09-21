@@ -27,8 +27,8 @@
   <style>
     .banner-gif-combo {
       position: relative;
-      width: 210px;
-      height: 210px;
+      width: 250px;  /* Increased size */
+      height: 250px;
       flex-shrink: 0;
     }
 
@@ -51,9 +51,46 @@
       border-radius: 50%;
     }
 
-    /* Custom class to push GIFs lower */
+    /* Push GIFs lower for top/bottom column */
     .extra-margin-top {
-      margin-top: 150px; /* You can adjust this value to push even lower */
+      margin-top: 150px;
+    }
+
+    /* Middle project layout */
+    .middle-project {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+
+    .middle-project .banner-gif-combo {
+      order: 1; /* GIF on left */
+    }
+
+    .middle-project .project-text {
+      order: 2; /* Text on right */
+      flex: 1;  /* take remaining space */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .middle-project {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .middle-project .project-text {
+        order: 2;
+        flex: unset;
+      }
+
+      .middle-project .banner-gif-combo {
+        order: 1;
+        margin-bottom: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -98,7 +135,7 @@
   <section id="hero" class="p-medium position-relative">
     <div class="container text-white">
       <div class="row justify-content-center align-items-start">
-        <!-- Text Column: wider -->
+        <!-- Text Column -->
         <div class="col-lg-9 mt-5 order-lg-1 order-2">
           <p class="letter-space text-primary fw-semibold fs-3" data-aos="fade-up" data-aos-duration="1000">
             I'm K - a programmer with a focus on physics based systems.
@@ -116,17 +153,7 @@
             object manipulation and borders that limited only certain objects.
           </p>
 
-          <h2 class="banner-size fw-medium display-3 my-4" data-aos="fade-up" data-aos-duration="1200">
-            Pen & Sword
-          </h2>
-          <p data-aos="fade-up" data-aos-duration="1400">
-            A top-down, tower defence game; Pen & Sword was a result of a team collaboration
-            with the theme: 'Many enemies'. My contributions mainly focuses on the towers, bullets and plots
-            but was split alot across the board when issues arised. The game took around 12 weeks to develop,
-            I spent half of that time coding and checking performance. The other half of that, I spent developing
-            my skills with GitHub, helping the programmers with any game related issues (such as Merge errors or 
-            things not functioning as they should) and briging the gap between the programmers and non-programmers.
-          </p>
+          <!-- Middle project text will be next to GIF in its own div -->
 
           <h2 class="banner-size fw-medium display-3 my-4" data-aos="fade-up" data-aos-duration="1200">
             Null
@@ -138,23 +165,40 @@
           </p>
         </div>
 
-        <!-- GIF Column: narrower and pushed down more -->
+        <!-- GIF Column: top and bottom only -->
         <div class="col-lg-3 d-flex flex-column align-items-end gap-4 extra-margin-top order-lg-2 order-1"
           data-aos="fade-up" data-aos-duration="1400">
           <div class="banner-gif-combo">
             <img src="images/BowlingGif.gif" alt="Bowling Gif" class="rounded-circle" />
             <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
           </div>
-          <div class="banner-gif-combo">
-            <img src="images/PASGif.gif" alt="PenAndSword Gif" class="rounded-circle" />
-            <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
-          </div>
+
           <div class="banner-gif-combo">
             <img src="images/BiosGif.gif" alt="BiosGif Gif" class="rounded-circle" />
             <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
           </div>
         </div>
       </div>
+
+      <!-- Middle Project: Pen & Sword -->
+      <div class="middle-project" data-aos="fade-up" data-aos-duration="1400">
+        <div class="banner-gif-combo">
+          <img src="images/PASGif.gif" alt="PenAndSword Gif" class="rounded-circle" />
+          <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
+        </div>
+        <div class="project-text">
+          <h2 class="banner-size fw-medium display-3 my-4">Pen & Sword</h2>
+          <p>
+            A top-down, tower defence game; Pen & Sword was a result of a team collaboration
+            with the theme: 'Many enemies'. My contributions mainly focuses on the towers, bullets and plots
+            but was split a lot across the board when issues arose. The game took around 12 weeks to develop,
+            I spent half of that time coding and checking performance. The other half of that, I spent developing
+            my skills with GitHub, helping the programmers with any game-related issues (such as Merge errors or 
+            things not functioning as they should) and bridging the gap between the programmers and non-programmers.
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -169,6 +213,8 @@
   <script src="js/script.js"></script>
 </body>
 </html>
+
+
 
 
 
