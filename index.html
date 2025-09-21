@@ -1,138 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>K's Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K's Portfolio</title>
 
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
-<style>
-  body {
-    margin: 0;
-    font-family: 'Space Grotesk', sans-serif;
-    background-color: #111; /* keep your background */
-    color: #fff;
-  }
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
 
-  h2 {
-    margin-bottom: 1rem;
-  }
+  <!-- Vendor & Custom CSS (your background + button styles live here) -->
+  <link rel="stylesheet" type="text/css" href="css/vendor.css" />
+  <link rel="stylesheet" href="styles.css" />
 
-  .banner-gif-combo {
-    position: relative;
-    width: 250px;
-    height: 250px;
-    flex-shrink: 0;
-  }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+    rel="stylesheet" />
 
-  .banner-gif-combo img.rounded-circle {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-
-  .animated-border {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    border-radius: 50%;
-  }
-
-  /* Middle project: flex layout with GIF left, text right */
-  .middle-project {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-    margin: 4rem 0; /* spacing between projects */
-  }
-
-  @media (max-width: 992px) {
-    .middle-project {
-      flex-direction: column;
-      text-align: center;
+  <!-- Custom Styles -->
+  <style>
+    .banner-gif-combo {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      flex-shrink: 0;
     }
-  }
-</style>
+
+    .banner-gif-combo img.rounded-circle {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .animated-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      border-radius: 50%;
+    }
+
+    /* Middle project: flex layout with GIF left, text right */
+    .middle-project {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      margin: 4rem 0;
+    }
+
+    @media (max-width: 992px) {
+      .middle-project {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg py-4" data-bs-theme="dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">K</a>
-  </div>
-</nav>
-
-<!-- Projects Section -->
-<section class="container py-5">
-
-  <!-- Top Project: Bowling -->
-  <div class="row align-items-start mb-5">
-    <div class="col-lg-9">
-      <h2>We Bowling</h2>
-      <p>
-        A modern take on the bowling minigame from Wii Sports™. Built in Unreal Engine, it
-        focuses on collision detection and response primarily starting with the ball. I
-        manually experimented with different materials and properties to find which setup
-        made the objects feel realistic, adding in physics that aren't included in Unreal 
-        such as spin/backspin, realignment, hit detection under certain qualities, basic
-        object manipulation and borders that limited only certain objects.
-      </p>
-    </div>
-    <div class="col-lg-3 d-flex flex-column align-items-end gap-4">
-      <div class="banner-gif-combo">
-        <img src="images/BowlingGif.gif" alt="Bowling Gif" class="rounded-circle" />
-        <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
+  <!-- Navbar -->
+  <nav id="header-nav" class="navbar navbar-expand-lg py-4" data-bs-theme="dark">
+    <div class="container-fluid padding-side">
+      <a class="navbar-brand" href="index.html">K</a>
+      <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <button type="button" class="btn-close text-reset shadow-none" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav text-center align-items-center justify-content-end flex-grow-1">
+            <li class="nav-item">
+              <a class="nav-link active pe-lg-5" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pe-lg-5" href="projects.html">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pe-lg-5" href="personalprojects.html">Personal Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link pe-lg-5" href="about.html">About</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
+  </nav>
 
-  <!-- Middle Project: Pen & Sword -->
-  <div class="middle-project">
-    <div class="banner-gif-combo">
-      <img src="images/PASGif.gif" alt="PenAndSword Gif" class="rounded-circle" />
-      <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
-    </div>
-    <div class="project-text">
-      <h2>Pen & Sword</h2>
-      <p>
-        A top-down, tower defence game; Pen & Sword was a result of a team collaboration
-        with the theme: 'Many enemies'. My contributions mainly focus on the towers, bullets and plots,
-        and I helped bridge the gap between programmers and non-programmers during development.
-      </p>
-    </div>
-  </div>
+  <!-- Projects Section -->
+  <section id="hero" class="p-medium position-relative">
+    <div class="container text-white">
 
-  <!-- Bottom Project: Null -->
-  <div class="row align-items-start mt-5">
-    <div class="col-lg-9">
-      <h2>Null</h2>
-      <p>
-        A 2D, sidescrolling investigation thriller based on the game Phasmophobia. A personal project
-        aimed to figure out if I could use indicators (other than visuals) to tell the player that an
-        enemy is nearby or approaching or that they're using an item.
-      </p>
-    </div>
-    <div class="col-lg-3 d-flex flex-column align-items-end gap-4">
-      <div class="banner-gif-combo">
-        <img src="images/BiosGif.gif" alt="BiosGif Gif" class="rounded-circle" />
-        <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
+      <!-- Top Project: Bowling -->
+      <div class="row align-items-start mb-5">
+        <div class="col-lg-9">
+          <h2 class="banner-size fw-medium display-3 my-4">We Bowling</h2>
+          <p>
+            A modern take on the bowling minigame from Wii Sports™. Built in Unreal Engine, it
+            focuses on collision detection and response primarily starting with the ball. I
+            manually experimented with different materials and properties to find which setup
+            made the objects feel realistic, adding in physics that aren't included in Unreal 
+            such as spin/backspin, realignment, hit detection under certain qualities, basic
+            object manipulation and borders that limited only certain objects.
+          </p>
+        </div>
+        <div class="col-lg-3 d-flex flex-column align-items-end gap-4">
+          <div class="banner-gif-combo">
+            <img src="images/BowlingGif.gif" alt="Bowling Gif" class="rounded-circle" />
+            <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
+          </div>
+        </div>
       </div>
+
+      <!-- Middle Project: Pen & Sword -->
+      <div class="middle-project">
+        <div class="banner-gif-combo">
+          <img src="images/PASGif.gif" alt="PenAndSword Gif" class="rounded-circle" />
+          <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
+        </div>
+        <div class="project-text">
+          <h2 class="banner-size fw-medium display-3 my-4">Pen & Sword</h2>
+          <p>
+            A top-down, tower defence game; Pen & Sword was a result of a team collaboration
+            with the theme: 'Many enemies'. My contributions mainly focus on the towers, bullets and plots,
+            and I helped bridge the gap between programmers and non-programmers during development.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom Project: Null -->
+      <div class="row align-items-start mt-5">
+        <div class="col-lg-9">
+          <h2 class="banner-size fw-medium display-3 my-4">Null</h2>
+          <p>
+            A 2D, sidescrolling investigation thriller based on the game Phasmophobia. A personal project
+            aimed to figure out if I could use indicators (other than visuals) to tell the player that an
+            enemy is nearby or approaching or that they're using an item.
+          </p>
+        </div>
+        <div class="col-lg-3 d-flex flex-column align-items-end gap-4">
+          <div class="banner-gif-combo">
+            <img src="images/BiosGif.gif" alt="BiosGif Gif" class="rounded-circle" />
+            <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
+          </div>
+        </div>
+      </div>
+
     </div>
-  </div>
+  </section>
 
-</section>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Scripts -->
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
+
+
 
 
 
