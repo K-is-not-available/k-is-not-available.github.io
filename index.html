@@ -27,7 +27,7 @@
   <style>
     .banner-gif-combo {
       position: relative;
-      width: 250px;  /* Increased size */
+      width: 250px;
       height: 250px;
       flex-shrink: 0;
     }
@@ -51,45 +51,31 @@
       border-radius: 50%;
     }
 
-    /* Push GIFs lower for top/bottom column */
     .extra-margin-top {
       margin-top: 150px;
     }
 
-    /* Middle project layout */
-    .middle-project {
+    /* Middle Project Section */
+    .middle-project-section {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      margin: 4rem 0;
+      justify-content: center;
+      min-height: 100vh;
     }
 
-    .middle-project .banner-gif-combo {
-      order: 1; /* GIF on left */
-    }
-
-    .middle-project .project-text {
-      order: 2; /* Text on right */
-      flex: 1;  /* take remaining space */
+    .middle-project-section .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      max-width: 1200px;
     }
 
     /* Responsive adjustments */
     @media (max-width: 992px) {
-      .middle-project {
+      .middle-project-section .container {
         flex-direction: column;
-        align-items: center;
         text-align: center;
-      }
-
-      .middle-project .project-text {
-        order: 2;
-        flex: unset;
-      }
-
-      .middle-project .banner-gif-combo {
-        order: 1;
-        margin-bottom: 1.5rem;
       }
     }
   </style>
@@ -137,28 +123,26 @@
       <div class="row justify-content-center align-items-start">
         <!-- Text Column -->
         <div class="col-lg-9 mt-5 order-lg-1 order-2">
-          <p class="letter-space text-primary fw-semibold fs-3" data-aos="fade-up" data-aos-duration="1000">
+          <p class="letter-space text-primary fw-semibold fs-3">
             I'm K - a programmer with a focus on physics based systems.
           </p>
 
-          <h2 class="banner-size fw-medium display-3 my-4" data-aos="fade-up" data-aos-duration="1200">
+          <h2 class="banner-size fw-medium display-3 my-4">
             We Bowling
           </h2>
-          <p data-aos="fade-up" data-aos-duration="1400">
+          <p>
             A modern take on the bowling minigame from Wii Sports™. Built in Unreal Engine, it
-            focuses on collision detection and response primarilly starting with the  ball. I
+            focuses on collision detection and response primarily starting with the ball. I
             manually experimented with different materials and properties to find which setup
             made the objects feel realistic, adding in physics that aren't included in Unreal 
             such as spin/backspin, realignment, hit detection under certain qualities, basic
             object manipulation and borders that limited only certain objects.
           </p>
 
-          <!-- Middle project text will be next to GIF in its own div -->
-
-          <h2 class="banner-size fw-medium display-3 my-4" data-aos="fade-up" data-aos-duration="1200">
+          <h2 class="banner-size fw-medium display-3 my-4">
             Null
           </h2>
-          <p data-aos="fade-up" data-aos-duration="1400">
+          <p>
             A 2D, sidescrolling investigation thriller based on the game Phasmophobia. A personal project
             aimed to figure out if I could use indicators (other than visuals) to tell the player that an
             enemy is nearby or approaching or that they're using an item.
@@ -166,8 +150,7 @@
         </div>
 
         <!-- GIF Column: top and bottom only -->
-        <div class="col-lg-3 d-flex flex-column align-items-end gap-4 extra-margin-top order-lg-2 order-1"
-          data-aos="fade-up" data-aos-duration="1400">
+        <div class="col-lg-3 d-flex flex-column align-items-end gap-4 extra-margin-top">
           <div class="banner-gif-combo">
             <img src="images/BowlingGif.gif" alt="Bowling Gif" class="rounded-circle" />
             <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
@@ -179,26 +162,24 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Middle Project: Pen & Sword -->
-      <div class="middle-project" data-aos="fade-up" data-aos-duration="1400">
-        <div class="banner-gif-combo">
-          <img src="images/PASGif.gif" alt="PenAndSword Gif" class="rounded-circle" />
-          <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
-        </div>
-        <div class="project-text">
-          <h2 class="banner-size fw-medium display-3 my-4">Pen & Sword</h2>
-          <p>
-            A top-down, tower defence game; Pen & Sword was a result of a team collaboration
-            with the theme: 'Many enemies'. My contributions mainly focuses on the towers, bullets and plots
-            but was split a lot across the board when issues arose. The game took around 12 weeks to develop,
-            I spent half of that time coding and checking performance. The other half of that, I spent developing
-            my skills with GitHub, helping the programmers with any game-related issues (such as Merge errors or 
-            things not functioning as they should) and bridging the gap between the programmers and non-programmers.
-          </p>
-        </div>
+  <!-- Middle Project Section: Pen & Sword -->
+  <section class="middle-project-section">
+    <div class="container">
+      <div class="banner-gif-combo">
+        <img src="images/PASGif.gif" alt="PenAndSword Gif" class="rounded-circle" />
+        <img src="images/banner-img-border.png" alt="Banner border" class="animated-border" />
       </div>
-
+      <div class="project-text">
+        <h2 class="banner-size fw-medium display-3 my-4">Pen & Sword</h2>
+        <p>
+          A top-down, tower defence game; Pen & Sword was a result of a team collaboration
+          with the theme: 'Many enemies'. My contributions mainly focus on the towers, bullets and plots,
+          and I helped bridge the gap between programmers and non-programmers during development.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -213,6 +194,8 @@
   <script src="js/script.js"></script>
 </body>
 </html>
+
+
 
 
 
